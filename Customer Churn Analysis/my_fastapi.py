@@ -83,7 +83,7 @@ async def predict(data:dict):
                          data['loan_purposes'],data['credit_score'],float(data['Credit_Amount']),float(data['loan_rate'] ),
                          float(data['loan_percentage']),data['Payment_History'],float(data['Credit_History_Length'])).transform()
     preditions = np.array(ts)
-    pred = np.where(tf_model.predict(preditions,verbose=0)[0][0] >0.4 ,1,0 )
+    pred = np.where(tf_model.predict(preditions,verbose=0)[0][0] >0.5 ,1,0 )
     return   int(pred)
 
 
